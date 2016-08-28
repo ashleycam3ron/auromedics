@@ -1,0 +1,21 @@
+<IfModule mod_headers.c>
+# Set XSS Protection header
+Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Set image expiration
+ExpiresActive On
+ExpiresByType image/gif A2592000
+ExpiresByType image/png A2592000
+ExpiresByType image/jpg A2592000
+ExpiresByType image/jpeg A2592000
+
+# Direct website IP to url
+RewriteCond %{HTTP_HOST} ^66\.147\.240\.173
+RewriteRule (.*) http://illazzarone.org/$1 [R=301,L]
+
+# Block the libwww-perl user-agent
+RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
+RewriteRule .* ? [F,L]
+
+Options All -Indexes
