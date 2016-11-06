@@ -17,8 +17,8 @@ get_header(); ?>
 <section id="contact">
 	<h1 class="hidden"><?php the_title(); ?></h1>
 	<article class="entry col-md-10 col-md-offset-1">
-		<div class="col-md-6" style="border-right: 1px solid #aee9de;"><?php the_field('column_1'); ?></div>
-		<div class="col-md-6" style="padding-left: 60px;"><?php the_field('column_2'); ?></div>
+		<div class="col-xs-12 col-sm-6"><?php the_field('column_1'); ?></div>
+		<div class="col-xs-12 col-sm-6 last"><?php the_field('column_2'); ?></div>
 	</article>
 	<article class="row clear" style="background-color:#def1ef;border-top: 1px solid #aee9de;">
 		<h4 class="text-center" style="padding: 30px 0 0;">We'd love to hear how we're doing</h4>

@@ -91,14 +91,6 @@
 			   		  <td><?php if ($mckesson){ ?><?php echo $mckesson; ?><?php } else { echo '–';} ?></td>
 			   		  <td><?php if ($md){ ?><?php echo $md; ?>			  <?php } else { echo '–';} ?></td>
 					</tr>
-
-		   		<?php /*
-if ($strength){ ?><li><strong>Strength:</strong><?php echo $strength; ?></li><?php } ?>
-		   		<?php if ($abc){ ?><li><strong>ABC:</strong><?php echo $abc; ?></li><?php } ?>
-		   		<?php if ($cardinal){ ?><li><strong>Cardinal:</strong><?php echo $cardinal; ?></li><?php } ?>
-		   		<?php if ($mckesson){ ?><li><strong>McKesson:</strong><?php echo $mckesson; ?></li><?php } ?>
-		   		<?php if ($md){ ?><li><strong>M&amp;D:</strong><?php echo $md; ?></li><?php }
-*/ ?>
 				<?php endwhile; ?>
 				</table>
 			<?php endif; ?>
@@ -172,9 +164,9 @@ if ($strength){ ?><li><strong>Strength:</strong><?php echo $strength; ?></li><?p
 			<div class="extra">
 				<ul style="margin-top: 10px;">
 			   	  <li>
-				   	<?php if ($rating){ ?><span class="col-md-3"><strong>Bioequivalency Rating</strong> <br/><?php echo $rating; ?></span><?php } ?>
-				   	<?php if ($barcode){ ?><span class="col-md-3"><strong>Bar Code Type</strong> <br/><?php echo $barcode; ?></span><?php } ?>
-				   	<?php if ($controlled){ ?><span class="col-md-4"><strong>Controlled Substance Class</strong> <br/><?php echo $controlled; ?></span><?php } ?>
+				   	<?php if ($rating){ ?><span class="col-xs-4 col-sm-3"><strong>Bioequivalency Rating</strong> <br/><?php echo $rating; ?></span><?php } ?>
+				   	<?php if ($barcode){ ?><span class="col-xs-4 col-sm-3"><strong>Bar Code Type</strong> <br/><?php echo $barcode; ?></span><?php } ?>
+				   	<?php if ($controlled){ ?><span class="col-xs-4 col-sm-3"><strong>Controlled Substance Class</strong> <br/><?php echo $controlled; ?></span><?php } ?>
 				   	<div class="clear"></div>
 			      </li>
 			   	<?php if ($storage){ ?><li><strong>Storage Requirements:</strong> <?php echo $storage; ?></li><?php } ?>

@@ -1,7 +1,7 @@
 <footer id="footer" class="container-fluid">
 	<h3 class="hidden">Company Overview</h3>
 	<div class="col-md-6">
-		<div class="col-md-5">
+		<div class="col-sm-5">
 			<a href="<?php echo esc_url( home_url() ) ?>">
 				<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri() ?>/images/AuroMedics-Pharma-LLC-Logo.png" alt="AuroMedics Pharma LLC Logo">
 			</a>
@@ -11,13 +11,13 @@
 			</address>
 			<img style="padding-left:18px;padding-bottom: 23px;" src="<?php echo get_stylesheet_directory_uri() ?>/images/HDA-Member-Logo.png" alt="HDA Member" />
 		</div>
-		<div class="col-md-7">
+		<div class="col-sm-6 col-md-7">
 			<h5>About</h5>
 			<p>AuroMedics is a generic injectables company that has built its business and offerings around servicing our customers’ needs. Count on us to deliver benefits that you experience high-quality products, competitive pricing, consistent supply, and exemplary service.</p>
 		</div>
 	</div>
 	<div class="col-md-6">
-		<div class="col-md-4">
+		<div class="col-sm-4 pro">
 			<h5>Products</h5>
 			<ul>
 				<li><a href="<?php echo esc_url( home_url() ) ?>/products">All Products</a></li>
@@ -25,7 +25,7 @@
 				<li><a href="<?php echo esc_url( home_url() ) ?>/products">Featured Products</a></li>
 			</ul>
 		</div>
-		<div class="col-md-4">
+		<div class="col-sm-4 benefits">
 			<h5>Benefits</h5>
 			<ul>
 				<li><span>+</span> High-quality products </li>
@@ -34,7 +34,7 @@
 				<li><span>+</span> Exemplary service</li>
 			</ul>
 		</div>
-		<div class="col-md-4">
+		<div class="col-sm-4 contact">
 			<h5>Contact Us</h5>
 			<h6>TELEPHONE</h6>
 			<a class="tel" href="tel:888-238-7880">(888) 238-7880</a>

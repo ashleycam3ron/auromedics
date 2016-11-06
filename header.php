@@ -48,7 +48,7 @@
 <body <?php body_class(); ?>>
 	<h3 class="hidden"><?php bloginfo('name')?> – <?php bloginfo('description');?></h3>
 
-<header id="header" role="banner" class="col-md-offset-6">
+<header id="header" role="banner" class="col-sm-offset-4 col-md-offset-6">
 	<span>Customer Service: <a class="tel" href="tel:888-238-7880">(888) 238-7880</a></span>
 	<a href="<?php echo esc_url( home_url() ) ?>/careers">Careers</a>
 <!--

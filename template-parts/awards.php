@@ -7,7 +7,7 @@
 		$year = get_sub_field('year', 147);
 		$award = get_sub_field('name_of_award', 147); ?>
 
-		<li class="col-md-3">
+		<li class="col-xs-6 col-md-3">
 			<img class="img-responsive" src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['title'] ?>" />
 		    <h4><?php echo $year; ?></h4>
 		    <p><?php echo $award; ?></p>
