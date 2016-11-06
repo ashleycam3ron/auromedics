@@ -12,4 +12,9 @@
 		<?php } ?>
 		<?php endwhile;?>
 	</section>
+
+	<?php if (is_page(11)){
+		include 'contact.php';
+		} ?>
+
 <?php get_footer();?>

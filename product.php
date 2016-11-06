@@ -14,12 +14,11 @@
 		<?php if( $hdma ){ ?><a class="pdf" href="<?php echo $hdma['url']; ?>">HDMA</a><?php } ?>
 		<?php if( $wholesale ){ ?><a class="pdf" href="<?php echo $wholesale['url']; ?>">Wholesale Item Number</a><?php } ?>
 	</div>
-	<div class="col-md-8">
-		<h1><?php the_title();?></h1>
+	<div class="col-md-8" style="padding-right: 0;">
 		<?php the_content();?>
 
 		<?php if( have_rows('table') ): ?>
-			<table>
+			<table id="detail">
 			   	<?php while ( have_rows('table') ) : the_row();
 				   	$description = get_sub_field('description');
 				   	$generic = get_sub_field('generic');
@@ -33,7 +32,7 @@
 				   	$additional = get_sub_field('additional');
 				   	$storage = get_sub_field('storage');
 				 ?>
-				<tr><th colspan="2"><h2><?php the_title();?></h2></th></tr>
+				<tr><th colspan="2"><h1><?php the_title();?></h1></th></tr>
 			   	<?php if ($description){ ?><tr><td><strong>Product Description</strong></td><td><?php echo $description; ?></td></tr><?php } ?>
 			   	<?php if ($generic){ ?><tr class="even"><td><strong>Generic Name</strong></td><td><?php echo $generic; ?></td></tr><?php } ?>
 			   	<?php if ($brand){ ?><tr><td><strong>Brand Name / Company</strong></td><td><?php echo $brand; ?></td></tr><?php } ?>
@@ -52,13 +51,13 @@
 					   	$additional = get_sub_field('additional');
 
 					   	if( in_array('gluten', $additional) ) { ?>
-							<img src="<?php echo get_stylesheet_directory_uri();?>/images/gluten-free.png" alt="Gluten Free"/>
+							<img src="<?php echo get_stylesheet_directory_uri();?>/images/gluten-free1.png" alt="Gluten Free"/>
 						<?php }
 						if( in_array('latex', $additional) ) { ?>
-							<img src="<?php echo get_stylesheet_directory_uri();?>/images/latex-free.png" alt="Latex Free"/>
+							<img src="<?php echo get_stylesheet_directory_uri();?>/images/latex-free1.png" alt="Latex Free"/>
 						<?php }
 						if( in_array('preservative', $additional) ) { ?>
-							<img src="<?php echo get_stylesheet_directory_uri();?>/images/preservative-free.png" alt="Preservative Free"/>
+							<img src="<?php echo get_stylesheet_directory_uri();?>/images/preservative-free1.png" alt="Preservative Free"/>
 						<?php }
 
 /*
@@ -81,7 +80,7 @@
 		<?php endif; ?>
 	</div>
 	<?php if( have_rows('ndc') ): ?>
-			<table id="NDC" class="text-center">
+			<table id="NDC" class="text-center col-md-12">
 			   	<?php while ( have_rows('ndc') ) : the_row();
 				   	$ndc = get_sub_field('ndc');
 				   	$ndcLink = get_sub_field('ndc_link');
@@ -119,7 +118,7 @@
 			</table>
 		<?php endif; ?>
 
-		<p><strong>For Package Inserts, please click on the NDC#</strong></p>
+		<h3 style="clear: both;">For Package Inserts, please click on the NDC#</h3>
 		<p>Our products are available from authorized distributors.<br/>
 		For complete ordering information, please contact your local pharmaceutical distributor.</p>
 
