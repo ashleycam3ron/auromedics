@@ -4,9 +4,8 @@
 	foreach($inc as $k=>$v){
 		if($k>1 && is_file(dirname(__FILE__) . '/functions/'.$v)) include(dirname(__FILE__).'/functions/'.$v);
 	}
-
-
 add_filter('post_class','add_category_to_single');
+
 function add_category_to_single($classes, $class) {
 	if (is_single() ) {
 		global $post;

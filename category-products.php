@@ -5,11 +5,18 @@ wp_enqueue_script( 'isotope-fix', 'https://cdnjs.cloudflare.com/ajax/libs/jquery
 
 get_header(); ?>
 
-<div id="products">
-	<section>
-		<img class="img-responsive" src="http://placehold.it/1400x500/eeeeee/888888">
+<div id="products" class="container-fluid">
+	<?php $image = get_field('header_image', 'category_1');
+		if( !empty($image) ){ ?>
+
+	<section id="banner" style="background: url(<?php echo $image['url']; ?>) no-repeat bottom left #e4f8f6;background-size: 88%;">
+		<article class="col-md-5 col-md-offset-6">
+			<?php if (get_field('header_title', 'category_1')){ ?> <h1><?php the_field('header_title', 'category_1'); ?></h1> <?php } ?>
+			<?php if (get_field('header_text', 'category_1')){ ?> <h2><?php the_field('header_text', 'category_1'); ?></h2> <?php } ?>
+			<?php echo category_description( $category_id ); ?>
+		</article>
 	</section>
-	<div class="container-fluid">
+	<?php } ?>
 
 <!--
 		<section class="col-md-10 col-md-offset-1 new">
@@ -75,11 +82,9 @@ xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
 		</section>
 -->
 		<aside id="sidebar-left" class="col-md-3">
-			Filter by keyword
-			<?php //get_search_form(); ?>
-
-			<input type="text" class="quicksearch" placeholder="Search" />
-
+			<p>Filter by keyword</p>
+			<p style="margin: 0;"><input type="text" class="quicksearch" placeholder="Search" /></p>
+			<hr>
 			<h3>Therapeutic Class</h3>
 			<?php $tags = get_tags();
 			$html = '<ul id="filters2">';
@@ -87,14 +92,14 @@ xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
 				$tag_link = get_tag_link( $tag->term_id );
 
 				$html .= "<li><label><input type='checkbox' value='.tag-{$tag->slug}'/>";
-				$html .= "{$tag->name}</label></li>";
+				$html .= "{$tag->name}<span class='count pull-right'>{$tag->count}<span></label></li>";
 			}
 			$html .= '</ul>';
 			echo $html; ?>
 		</aside>
 
 		<section class="col-md-9 all">
-		    <header>
+		    <header style="border: 0;border-bottom: 1px solid #ebeced;">
 			    <h3><span>All</span> Products</h3>
 
 			    <ul id="filters">
@@ -102,16 +107,17 @@ xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
 					<li><a href="#" data-filter=".category-new-products" class="btn-default">New</a></li>
 					<li><a href="#" data-filter=".category-featured-products" class="btn-default">Featured</a></li>
 				</ul>
-				<span>Sort by</span>
-				<select class="button-group sort-by-button-group">
-				  <option data-sort-by="original-order">Alphabetical (A-Z)</option>
-				  <option data-option-value="false">Alphabetical (Z-A)</option>
-				  <option data-option-value="false">Newest</option>
-				  <option data-option-value="false">Oldest</option>
+				<span class="sort">Sort by</span>
+				<select class="button-group sort-by">
+				  <option data-option-value="original-order" class="selected">Alphabetical (A-Z)</option>
+				  <option data-option-value="random">Alphabetical (Z-A)</option>
 				</select>
 
-			    <i class="grid fa fa-th-large"><p class="sr-only sr-only-focusable">Grid View</p></i>
-			    <i class="list fa fa-th-list"><p class="sr-only sr-only-focusable">List View</p></i>
+				<span class="button-group layout-mode-button-group">
+			   	 	<button class="button is-checked grid" data-layout-mode="fitRows" checked="checked"><i class="fa fa-th-large"></i>Grid View</button>
+			   	 	<button class="button list" data-layout-mode="vertical"><i class="fa fa-th-list"></i>List View</button>
+				</span>
+
 		    </header>
 
 		    <div id="grid">
@@ -148,21 +154,31 @@ xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
 						 endwhile; endif; ?>
 					  <?php echo get_the_tag_list('<small class="tags">',', ','</small>'); ?>
 					</div>
+					<div class="clear"></div>
 				</div>
-				<div class="clearfix"></div>
 			</article>
 			<?php endwhile; ?>
 		</section>
 
-	</div>
 </div>
+
+<script>
+	$("input[type='checkbox']").change(function(){
+	    if($(this).is(":checked")){
+	        $(this).parent().addClass("active");
+	    }else{
+	        $(this).parent().removeClass("active");
+	    }
+	});
+</script>
 
 
 <script>
-$(document).ready(function() {
-	$('.category-products').addClass('grid');});
-    $('i.list').click(function(event){event.preventDefault();$('.category-products').removeClass('grid').addClass('list');});
-    $('i.grid').click(function(event){event.preventDefault();$('.category-products').removeClass('list').addClass('grid');
+//superscript registered trademark
+jQuery('.preview').contents().filter(function() {
+    return this.nodeType === 3;
+}).replaceWith(function() {
+    return this.nodeValue.replace(/®/g, '<sup>$&</sup>');
 });
 
 $("#filters :first-child a").addClass('selected');
@@ -172,11 +188,47 @@ $("#filters :first-child a").addClass('selected');
     // quick search regex
 	var qsRegex;
 
-    var $container = $('#grid'); //The ID for the list with all the blog posts
-	$container.isotope({ //Isotope options, 'item' matches the class in the PHP
-		itemSelector : '.category-products',
-  		layoutMode : 'fitRows',
-	}).imagesLoaded(); //Isotope fix - make sure images are loaded before initializing
+ var $container = $('#grid').imagesLoaded( function() {
+  // init Isotope after all images have loaded
+  $container.isotope({
+    itemSelector : '.category-products',
+  	layoutMode : 'fitRows'
+
+	//sortAscending: false
+/*
+  	filter: function() {
+    var $this = $(this);
+    var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
+    var buttonResult = buttonFilter ? $this.is( buttonFilter ) : true;
+    return searchResult && buttonResult;
+  }
+*/
+  });
+});
+
+// sort items on button click
+/*
+$('.sort-by').on( 'click', 'option', function() {
+  var sortName = $(this).attr('data-option-value');
+  $container.isotope({ sortBy: sortName });
+});
+*/
+
+// change is-checked class on buttons
+$('.button-group').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $( this ).addClass('is-checked');
+  });
+});
+
+	// Grid and list view
+	$(document).ready(function() {
+		$('#grid').addClass('grid');
+		$('button.list').click(function(event){event.preventDefault();$('#grid').removeClass('grid').addClass('list');});
+		$('button.grid').click(function(event){event.preventDefault();$('#grid').removeClass('list').addClass('grid');});
+	});
 
 	//Add the class selected to the item that is clicked, and remove from the others
 	var $optionSets = $('#filters, #filters2'),
@@ -230,6 +282,5 @@ $("#filters :first-child a").addClass('selected');
 	    timeout = setTimeout( delayed, threshold || 100 );
 	  }
 	}
-
 </script>
 <?php get_footer(); ?>

@@ -167,6 +167,8 @@ $(document).ready(function(){
 		map = new_map( $(this) );
 
 	});
+	// popup is shown and map is not visible
+	google.maps.event.trigger(map, 'resize');
 
 });
 

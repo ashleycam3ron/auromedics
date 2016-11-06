@@ -1,14 +1,14 @@
 <?php
 /* Template Name: Sitemap Page */
 
-get_header();?>
-	<section id="hero" class="row">
-	    <h1 class="hidden"><?php bloginfo('name')?> – <?php bloginfo('description');?></h1>
-		<div class="col-md-5 col-md-offset-6">
-			<?php the_content(); ?>
-			<a class="btn-default" href="#">Our company values <i class="fa fa-chevron-right"></i></a>
-		</div>
-    </section>
+get_header();
+$image = get_field('header_image');
+	if( !empty($image) ){ ?>
+<div id="banner" class="text-center" style="background: url(<?php echo $image['url']; ?>) no-repeat top left;background-size: contain;">
+	<?php if (get_field('header_title')){ ?> <h2><?php the_field('header_title'); ?></h2> <?php } ?>
+	<?php if (get_field('header_text')){ ?> <p><?php the_field('header_text'); ?></p> <?php } ?>
+</div>
+<?php } ?>
 	<section class="container-fluid">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <article class="entry col-sm-8 col-sm-offset-2" id="post-<?php the_ID(); ?>">
