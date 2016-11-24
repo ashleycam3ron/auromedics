@@ -2,8 +2,10 @@
 <?php $image = get_field('header_image');
 	if( !empty($image) ){ ?>
 <div id="banner" class="text-center" style="background: url(<?php echo $image['url']; ?>) no-repeat top center;background-size: cover;">
-	<?php if (get_field('header_title')){ ?> <h2><?php the_field('header_title'); ?></h2> <?php } ?>
-	<?php if (get_field('header_text')){ ?> <p><?php the_field('header_text'); ?></p> <?php } ?>
+	<div class="col-sm-6 col-sm-offset-3">
+	  <?php if (get_field('header_title')){ ?> <h2><?php the_field('header_title'); ?></h2> <?php } ?>
+	  <?php if (get_field('header_text')){ ?> <p><?php the_field('header_text'); ?></p> <?php } ?>
+	</div>
 </div>
 <?php } ?>
 

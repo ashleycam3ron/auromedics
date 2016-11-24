@@ -10,7 +10,7 @@ get_header();?>
 		if( $video ): ?>
 		<section class="container-fluid" style="background: white;">
 			<h3 class="hidden">About Our Company</h3>
-			<video class="img-responsive" style="margin: auto;" width="1024" height="400" poster="<?php echo get_stylesheet_directory_uri(); ?>/images/video-poster.jpg" autoplay>
+			<video controls onclick="this.play();" class="img-responsive" style="margin: auto;" width="1024" height="400" poster="<?php echo get_stylesheet_directory_uri(); ?>/images/video-poster.jpg">
 <!-- <video class="img-responsive" style="margin: auto;" width="1024" height="400" poster="<?php //echo get_stylesheet_directory_uri(); ?>/images/video-poster.jpg" onclick="this.play();"> -->
 			  <source src="<?php echo $video['url']; ?>" type="video/mp4">
 	<!-- 		  <source src="movie.ogg" type="video/ogg"> -->
@@ -29,10 +29,10 @@ get_header();?>
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="col-md-12 cards">
+			<div class="col-md-12 cards equal">
 				<div class="col-md-4 clear">
 					<h4>Products</h4>
-					<div>
+					<div class="col">
 						<p><strong style="color: inherit;">We are proud to offer an extensive product portfolio that:</strong></p>
 						<ul>
 							<li>Can be utilized in a range of institutional settings, including acute care hospitals, long-term care facilities, surgery and rehabilitation centers, and outpatient clinics</li>
@@ -44,7 +44,7 @@ get_header();?>
 				</div>
 				<div class="col-md-4">
 					<h4>Flexibility</h4>
-					<div>
+					<div class="col">
 						<p><strong style="color: inherit;">AuroMedics adapts to changing norms in the market. Our offerings reflect our flexibility:</strong></p>
 						<ul>
 							<li>Customized product procurement solutions for GPO partners</li>
@@ -58,7 +58,7 @@ get_header();?>
 				</div>
 				<div class="col-md-4">
 					<h4>Capabilities</h4>
-					<div>
+					<div class="col">
 						<p><strong style="color: inherit;">We control our critical processes:</strong></p>
 						<ul>
 							<li>Supply chain</li>
@@ -160,14 +160,14 @@ get_header();?>
 <!-- 				<p class="text-center"><a class="btn-default1" href="<?php the_field('button_link2'); ?>"><?php the_field('button_text2'); ?></a></p> -->
 				<p class="text-center"><a class="btn-default1" id="popup-link" href="#contact">Let Us Serve You</a></p>
 			</article>
-			<article class="col-md-4">
+			<article class="col-xs-9 col-xs-offset-2 col-md-4 col-md-offset-0">
 				<?php the_field('who_we_serve_col2'); ?>
 			</article>
 			<div class="clear"></div>
 		</section>
 	<?php } ?>
 
-	<section class="last" style="background:#fff;">
+	<section class="entry last" style="background:#fff;">
 		<img class="group img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/images/Product-Group-About.png" alt="Product group" />
 	</section>
 
@@ -184,13 +184,6 @@ get_header();?>
 </div>
 
 <script>
-/*
-	var video = document.getElementById('video');
-	video.addEventListener('click',function(){
-	    video.play();
-	},false);
-*/
-
 	$("#popup-link").fancybox({
 	  width: "auto",
 	  height: "auto",

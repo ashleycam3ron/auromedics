@@ -9,7 +9,7 @@ get_header(); ?>
 	<?php $image = get_field('header_image', 'category_1');
 		if( !empty($image) ){ ?>
 
-	<section id="banner" style="background: url(<?php echo $image['url']; ?>) no-repeat bottom left #e4f8f6;background-size: 88%;">
+	<section id="banner" style="background: url(<?php echo $image['url']; ?>) no-repeat center left #def1ef;background-size: cover;">
 		<article class="col-md-5 col-md-offset-6">
 			<?php if (get_field('header_title', 'category_1')){ ?> <h1><?php the_field('header_title', 'category_1'); ?></h1> <?php } ?>
 			<?php if (get_field('header_text', 'category_1')){ ?> <h2><?php the_field('header_text', 'category_1'); ?></h2> <?php } ?>
@@ -18,69 +18,6 @@ get_header(); ?>
 	</section>
 	<?php } ?>
 
-<!--
-		<section class="col-md-10 col-md-offset-1 new">
-		    <header>
-			    <h3><span>NEW</span> Products</h3>
-			</header>
-		    <?php
-			    $args = array(
-					'post_type' => 'post',
-					'category_name' => 'New Products',
-					'posts_per_page' => -1,
-					'orderby' => 'title',
-					'order' => 'ASC' );
-				$new = new WP_Query( $args );
-				while ( $new->have_posts() ) : $new->the_post(); ?>
-
-			    <article class="product col-xs-6 col-md-3 col" id="post-<?php the_ID(); ?>">
-		            <a href="<?php the_permalink(); ?>">
-					<?php if ( has_post_thumbnail()) { ?>
-					  	<?php echo get_the_post_thumbnail($post->ID, 'medium', array( 'class' => 'img-responsive' )); ?>
-		            <?php } else { ?>
-						<img class="img-responsive" src="http://placehold.it/320x400/ffffff/888888">
-					<?php } ?>
-					</a>
-				    <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-				    <p><?php the_excerpt(); ?>
-				    Brand Name: ---<br/>
-xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
-			    </article>
-
-			<?php endwhile; ?>
-		</section>
-
-	    <section class="col-md-10 col-md-offset-1 featured">
-		    <header>
-			    <h3><span>Featured</span> Products</h3>
-		    </header>
-		    <?php
-			    $args = array(
-					'post_type' => 'post',
-					'category_name' => 'Featured Products',
-					'posts_per_page' => -1,
-					'orderby' => 'title',
-					'order' => 'ASC' );
-				$featured = new WP_Query( $args );
-				while ( $featured->have_posts() ) : $featured->the_post(); ?>
-
-			    <article class="product col-xs-6 col-md-3 col" id="post-<?php the_ID(); ?>">
-		            <a href="<?php the_permalink(); ?>">
-					<?php if ( has_post_thumbnail()) { ?>
-					  	<?php echo get_the_post_thumbnail($post->ID, 'medium', array( 'class' => 'img-responsive' )); ?>
-		            <?php } else { ?>
-						<img class="img-responsive" src="http://placehold.it/320x400/ffffff/888888">
-					<?php } ?>
-					</a>
-				    <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-				    <p><?php the_excerpt(); ?>
-				    Brand Name: ---<br/>
-xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
-			    </article>
-
-			<?php endwhile; ?>
-		</section>
--->
 		<aside id="sidebar-left" class="col-md-3">
 			<p>Filter by keyword</p>
 			<p style="margin: 0;"><input type="text" class="quicksearch" placeholder="Search" /></p>
@@ -104,20 +41,10 @@ xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
 
 			    <ul id="filters">
 					<li><a href="#" data-filter="*" class="selected btn-default">All</a></li>
-					<li><a href="#" data-filter=".category-new-products" class="btn-default">New</a></li>
 					<li><a href="#" data-filter=".category-featured-products" class="btn-default">Featured</a></li>
 				</ul>
-				<span class="sort">Sort by</span>
-				<select class="button-group sort-by">
-				  <option data-option-value="original-order" class="selected">Alphabetical (A-Z)</option>
-				  <option data-option-value="random">Alphabetical (Z-A)</option>
-				</select>
 
-				<span class="button-group layout-mode-button-group">
-			   	 	<button class="button is-checked grid" data-layout-mode="fitRows" checked="checked"><i class="fa fa-th-large"></i>Grid View</button>
-			   	 	<button class="button list" data-layout-mode="vertical"><i class="fa fa-th-list"></i>List View</button>
-				</span>
-
+				<a href="http://ashley-cameron.com/clients/auromedics/wordpress/wp-content/uploads/AuroMedics-Corporate-Product-Catalog.pdf" target="_blank" class="download pull-right btn-default1">Download Product Catalog</a>
 		    </header>
 
 		    <div id="grid">
@@ -147,7 +74,7 @@ xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx</p>
 					  <?php if( have_rows('table') ): while ( have_rows('table') ) : the_row();
 						  $brand = get_sub_field('brand');
 						  if ($brand){ ?>
-					 	 <p>Brand: <?php echo $brand; ?></p>
+					 	 <p>Brand: <span class="brand"><?php echo $brand; ?></span></p>
 					  <?php } else { ?>
 					  	 <p>Brand Name: xxxxxx xxxxxx xxxxxx xxxxxx</p>
 					   <?php }
@@ -185,49 +112,18 @@ $("#filters :first-child a").addClass('selected');
 	// Store # parameter and add "." before hash
    // var hashID = "." + window.location.hash.substring(1);
 
-    // quick search regex
+	// quick search regex
 	var qsRegex;
 
- var $container = $('#grid').imagesLoaded( function() {
-  // init Isotope after all images have loaded
-  $container.isotope({
-    itemSelector : '.category-products',
-  	layoutMode : 'fitRows'
-
-	//sortAscending: false
-/*
-  	filter: function() {
-    var $this = $(this);
-    var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
-    var buttonResult = buttonFilter ? $this.is( buttonFilter ) : true;
-    return searchResult && buttonResult;
-  }
-*/
-  });
-});
-
-// sort items on button click
-/*
-$('.sort-by').on( 'click', 'option', function() {
-  var sortName = $(this).attr('data-option-value');
-  $container.isotope({ sortBy: sortName });
-});
-*/
-
-// change is-checked class on buttons
-$('.button-group').each( function( i, buttonGroup ) {
-  var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'button', function() {
-    $buttonGroup.find('.is-checked').removeClass('is-checked');
-    $( this ).addClass('is-checked');
-  });
-});
-
-	// Grid and list view
-	$(document).ready(function() {
-		$('#grid').addClass('grid');
-		$('button.list').click(function(event){event.preventDefault();$('#grid').removeClass('grid').addClass('list');});
-		$('button.grid').click(function(event){event.preventDefault();$('#grid').removeClass('list').addClass('grid');});
+	 var $container = $('#grid').imagesLoaded( function() {
+	  // init Isotope after all images have loaded
+	  $container.isotope({
+	    itemSelector : '.category-products',
+	  	layoutMode : 'fitRows',
+	  	filter: function() {
+		    return qsRegex ? $(this).text().match( qsRegex ) : true;
+		  },
+	  });
 	});
 
 	//Add the class selected to the item that is clicked, and remove from the others
@@ -282,5 +178,8 @@ $('.button-group').each( function( i, buttonGroup ) {
 	    timeout = setTimeout( delayed, threshold || 100 );
 	  }
 	}
+
+
+
 </script>
 <?php get_footer(); ?>

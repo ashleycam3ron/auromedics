@@ -1,6 +1,6 @@
 <footer id="footer" class="container-fluid">
 	<h3 class="hidden">Company Overview</h3>
-	<div class="col-md-6">
+	<div class="col-md-7">
 		<div class="col-sm-5">
 			<a href="<?php echo esc_url( home_url() ) ?>">
 				<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri() ?>/images/AuroMedics-Pharma-LLC-Logo.png" alt="AuroMedics Pharma LLC Logo">
@@ -11,13 +11,7 @@
 			</address>
 			<img style="padding-left:18px;padding-bottom: 23px;" src="<?php echo get_stylesheet_directory_uri() ?>/images/HDA-Member-Logo.png" alt="HDA Member" />
 		</div>
-		<div class="col-sm-6 col-md-7">
-			<h5>About</h5>
-			<p>AuroMedics is a generic injectables company that has built its business and offerings around servicing our customers’ needs. Count on us to deliver benefits that you experience high-quality products, competitive pricing, consistent supply, and exemplary service.</p>
-		</div>
-	</div>
-	<div class="col-md-6">
-		<div class="col-sm-4 pro">
+		<div class="col-sm-3 pro">
 			<h5>Products</h5>
 			<ul>
 				<li><a href="<?php echo esc_url( home_url() ) ?>/products">All Products</a></li>
@@ -34,12 +28,23 @@
 				<li><span>+</span> Exemplary service</li>
 			</ul>
 		</div>
+	</div>
+	<div class="col-md-5">
 		<div class="col-sm-4 contact">
 			<h5>Contact Us</h5>
 			<h6>TELEPHONE</h6>
 			<a class="tel" href="tel:888-238-7880">(888) 238-7880</a>
 			<h6>FAX</h6>
 			<a class="tel" href="tel:732-355-9449">(732) 355-9449</a>
+		</div>
+		<div class="col-sm-8">
+			<h5>Other Aurobindo Companies</h5>
+			<ul>
+				<li><a target="_blank" href="http://aurobindousa.com">www.aurobindousa.com</a></li>
+				<li><a target="_blank" href="http://aurolifepharma.com">www.aurolifepharma.com</a></li>
+				<li><a target="_blank" href="http://aurohealth.com">www.aurohealth.com</a></li>
+				<li><a target="_blank" href="http://natrol.com">www.natrol.com</a></li>
+			</ul>
 		</div>
 	</div>
 

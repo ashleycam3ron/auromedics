@@ -1,5 +1,6 @@
 <article class="entry col-md-11 single">
 	<div class="col-md-4 text-center">
+		<a class="btn-default" href="<?php echo home_url(); ?>/products">Back</a>
 		<?php if( has_post_thumbnail() ) {
 				$large = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' ); ?>
 			<a class="fancybox product-img" rel="products" href="<?php echo $large[0]; ?>">

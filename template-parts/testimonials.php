@@ -22,7 +22,7 @@
 				$count = 0;
 	            while ($testimonials->have_posts()) : $testimonials->the_post(); ?>
 				<div class="item <?php if ( $count == 0){ echo 'active';};?>" data-slide-number="<?php echo $count++;?>">
-				     <p><?php the_content();?></p>
+				     <div class="quote"><?php the_content();?></div>
 				     <h3><?php the_title();?></h3>
 				     <p class="customer"><?php the_field('customer');?><br/>
 				     <?php the_field('location');?></p>
