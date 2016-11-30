@@ -119,8 +119,17 @@ Text Domain: 	auromedics
 	  border-color: #00c2ad;
 	  text-decoration: none;
 	}
+	.back{    background: url(images/btn-back.png) no-repeat 12px center #00c2ad;
+    color: #fff;
+    float: left;
+    border: 0;margin: 25% 0 0 -15px;
+    padding: 9px 20px 9px 28px;}
+    .back:hover {
+    color: #fff;
+    background-color: #007769;
+}
 	#three-col a.btn-default{background:url(images/btn-default1.png) no-repeat 91% center;display: inline-block;}
-	.btn-default1{background:url(images/btn-default1.png) no-repeat 91% center #2c2daa;color: #fff; padding: 12px 36px 12px 20px; font-size: 13px; letter-spacing: .05em; font-weight: 100;display: inline-block}
+	.btn-default1{background:url(images/btn-default1.png) no-repeat 91% center #2c2daa;color: #fff; padding: 12px 36px 12px 20px; font-size: 13px; letter-spacing: .05em; font-weight: 100;display: inline-block;border-radius: 4px;margin: 5px;}
 	.btn-default1:hover{color: white;background-color:#222386;}
 	.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: #FF942A;}
 	#header .navbar-toggle {border: none; background: #40d1c1!important; position: absolute; border-radius: 0; margin: 0; width: 42px;right: 0;}
@@ -156,29 +165,22 @@ Text Domain: 	auromedics
 	.subscribe #gform_wrapper_1{padding: 0 25px;}
 
 	/* !Gravity Forms Validation */
-		.gform_confirmation_message{
-			background-color:transparent;
-			font-size: 2.5rem;color: white;}
+		.gform_confirmation_message{background-color:transparent;font-size: 2.5rem;color: white;}
 		#gform_wrapper_1 .validation_error,
-		#gform_wrapper_2 .validation_error{
-			border:0;text-align:center;width:100%;color:#ED1C24;margin:0;padding:10px 0}
+		#gform_wrapper_2 .validation_error{border:0;text-align:center;width:100%;color:#ED1C24;margin:0;padding:10px 0}
 		#gform_fields_1 li.gfield.gfield_error.gfield_contains_required,
-		#gform_fields_2 li.gfield.gfield_error.gfield_contains_required{
-			background:rgba(0,0,0,0) !important;border:0 !important;margin:0!important;}
+		#gform_fields_2 li.gfield.gfield_error.gfield_contains_required{background:rgba(0,0,0,0) !important;border:0 !important;margin:0!important;}
 		.gform_wrapper #gform_fields_1 .validation_message,
-		.gform_wrapper #gform_fields_2 .validation_message{
-			color: #ED1C24 !important;padding:0 !important;}
+		.gform_wrapper #gform_fields_2 .validation_message{color: #ED1C24 !important;padding:0 !important;}
 		.gform_wrapper li.gfield_error input[type=text],
 		.gform_wrapper li.gfield_error input[type=url],
 		.gform_wrapper li.gfield_error input[type=email],
 		.gform_wrapper li.gfield_error input[type=tel],
 		.gform_wrapper li.gfield_error input[type=number],
 		.gform_wrapper li.gfield_error input[type=password],
-		.gform_wrapper li.gfield_error textarea{
-	/* 		border-color:#FCB040 !important; */}
+		.gform_wrapper li.gfield_error textarea{/* border-color:#FCB040 !important; */}
 		.gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label,
-		.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container{
-			margin:0!important;max-width:100%}
+		.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container{margin:0!important;max-width:100%}
 
 /* !Header */
 	#header {background: rgba(0,194,173,.75);position: absolute;z-index: 10;padding:0 12px 0 20px;font-weight: 300;letter-spacing: .03em;}
@@ -187,7 +189,6 @@ Text Domain: 	auromedics
 	#header a {border-right: 1px solid #58e4d5;padding:9px 13px 9px 10px;}
 	#header a.tel {font-weight: normal;color:#2b328d;padding: 9px 13px 9px 2px;}
 	.navbar-brand {width: 100%;height: auto;padding: 15px 20px 27px;}
-	#site-description{width: 39%;float: right;padding: 4px 30% 0 0;font-size: 13px;font-style:italic;line-height:15px;color:#DDD;}
 
 /* !Social */
 	#menu-social {margin: 0;}
@@ -273,7 +274,7 @@ Text Domain: 	auromedics
 	label.screen-reader-text{color: white;padding: 0 0 0 33px;}
 
 	.navbar-right{position:relative}
-	.search-form{position:relative;}
+	.search-form{position:relative;margin: 0 0 0 8px;}
 	#header .search-form i {color: #39cfbf;position: absolute; top: 6px; right: 11px;}
 	.search-field,
 	.quicksearch { border-radius: 20em; border: 1px solid #6ee4d6; padding: 4px 20px; width: 170px;font-size: 13px;font-weight: normal;color: #00b09b;}
@@ -320,17 +321,20 @@ Text Domain: 	auromedics
 	#three-col .subscribe h3 {background-position:16px -112px; padding: 15px 15px 15px 60px; margin: 0 -15px 25px; }
 	.subscribe .gfield {width: 96% !important; padding: 0 !important; margin: 0 !important; }
 
-	#home #banner{padding-top: 10%;padding-bottom: 5%;}
+	#home #banner{padding-top: 15%;padding-bottom: 8%;}
 
 #products header{border: 1px solid #72dccf;}
 .home #products header{border: 1px solid #72dccf;margin:0 -15px 13px;}
 #products .featured header{background: #00c2ad;padding: 0 15px;}
 #products .featured h3 span{ color: white;}
-#products .featured .btn-default{ color: #fff;border-color: #fff;background: url(images/btn-default1.png) no-repeat 89% center;}
+#products .featured .btn-default{ color: #fff;border-color: #fff;background: url(images/btn-default1.png) no-repeat 89% center; margin:9px 15px 0 0;}
 /*
 #products .featured header{background: #e5f7f5;padding-right: 15px;border-left:0; }
 #products .featured h3 span{ color: #00b09b;}
 */
+.home .featured {
+    padding-bottom: 17px;
+}
 
 section{padding-top: 5%;padding-bottom: 5%;}
 img.stars {margin: -7px 0 8px;}
@@ -346,11 +350,11 @@ img.stars {margin: -7px 0 8px;}
 	#products #banner h2 {font-size: 20px;}
 	.home #banner p,
 	#products #banner p {font-size: 15px; line-height: 1.6;}
-	#banner h2 span{ color:#050d9e;}
+	#banner h2 span, .home #banner h2{ color:#050d9e;}
 	#banner h3,
 	#products #banner h2{font-family:"Rotis SemiSans W04 Bold", sans-serif;color: #00b09b;}
 	#banner h2+h3{margin-top: -7px;letter-spacing: .16em;}
-	.page-id-5 #banner{float: left;width: 100%;}
+	.page-id-5 #banner{background-position: bottom center !important;background-size: contain !important;background-color: #e9f6f6 !important;padding-bottom: 5%;}
 	#products #banner h2{text-transform: uppercase;letter-spacing: .16em;margin-top: -7px;}
 
 /* 	!About */
@@ -360,8 +364,8 @@ img.stars {margin: -7px 0 8px;}
 	#about .philosophy h3{letter-spacing: 0;font-size: 28px;}
 	#about h3, #about .philosophy h4, #about .goal{color:#00b09b;font-size: 16px;text-transform: uppercase;font-family: 'Lato', Helvetica, Arial, sans-serif;letter-spacing: .02em;}
 	#about .goal{text-transform: none;}
-	#about ul{text-align: left;padding-left:12%;}
-	#about li{margin: 8px 0;text-indent: -15px;}
+	#about .entry ul{text-align: left;padding-left:12%;}
+	#about .entry li{margin: 8px 0;text-indent: -15px;}
 	#about h3 img {margin: -9px 10px 0 -30px;}
 	#about .mission .entry ul{padding-left: 0; text-align: center}
 	#about .mission li{margin: 2px 0;}
@@ -385,7 +389,7 @@ img.stars {margin: -7px 0 8px;}
 	#about .cards div:nth-child(3) div {border-bottom:6px solid #94b459;}
 
 	section.last{position: relative;padding-bottom:212px;}
-	img.group{position: absolute;bottom: 0;z-index: 1;/* margin: auto; */left: 0;right: 0;max-height: 310px;}
+	img.group{position: absolute;bottom: 0;z-index: 1;margin: auto;left: 0;right: 0;max-height: 310px;}
 
 /* !Sign Up */
 	#signup{background:url(images/bg-subscribe.jpg) no-repeat -147px center #00b8a4;}
@@ -424,7 +428,7 @@ img.stars {margin: -7px 0 8px;}
 	#products section{padding:0;}
 	#products #banner h1{text-transform: none;color:#050d9e;}
 	#products #banner{min-height: 80vh;padding-top: 18%;}
-	.download{padding: 12px 25px 12px 50px;background-position: 14px -50px; background-image: url(images/sprite.png);}
+	.download{padding: 12px 25px 12px 50px;background-position: 14px -50px; background-image: url(images/sprite.png);margin-right: 37px;margin-left: 10px;}
 	#products header h3 {padding: 0 20px; font-size: 18px;margin: 15px 0;color: #00c2ad;}
     #filters, #filters li {display: inline-block;}
 	#filters2{list-style: none;}
@@ -437,6 +441,7 @@ img.stars {margin: -7px 0 8px;}
 	#products #filters a.selected{border-color: #00c2ad;color: #00c2ad;border-color: #00c2ad; color: #fff; background: #00c2ad; }
 	#products #filters a.selected:hover{opacity: .9;}
 	.count {font-size: 11.5px; width: 20px; height: 20px; border: 1px solid #ccc; border-radius: 20em; text-align: center; line-height: 18px; color: #888; }
+	.active .count {border-color: #6ddcd0;color: #00c2ad;}
 
 .product-img img {
     margin: auto;
@@ -465,8 +470,8 @@ select {
 	#sidebar-left p {text-align: center; text-transform: uppercase; font-size: 11px; color: #00c2ad; letter-spacing: .02em; margin: 15px 0 6px; }
 	#sidebar-left hr{margin:20px -15px 10px}
     .preview{border: 1px solid #b4ebe0; border-radius: 4px;padding: 15px;margin: 5px 0;}
-	.category-products{position: relative;padding-right: 0;}
-	#grid{margin-top: 10px;}
+	article.category-products{position: relative;padding:0 7.5px;}
+	#grid{margin-top: 10px;margin-left: 7.5px;margin-right: 7.5px;}
 	#grid.list .category-products{width: 70%;}
 	#grid.list .category-products img{float: left;width: 28%;margin-left: -15px;}
 	.preview p {color: #58595c; font-size: 12px; line-height: 1.2; margin: 0 0 2px; }
@@ -495,17 +500,26 @@ select {
 	th{background: #c5efe9;color: #029a88;}
 	td, th{border: 1px solid #92dad4;padding: 8px 7px;line-height: 1.1em;}
 	a.pdf{display: inline-block;padding:0;background: url(images/icon-pdf.png) no-repeat 10px center #defdf9; border: 1px solid #c1e6e4; border-radius: 3px; margin: 5px 0;}
-	a.pdf-lg{display: inline-block;padding:50px 0 0;background: url(images/icon-pdf-lg.png) no-repeat center 11px; border: 1px solid #bbbdc0; border-radius: 3px;width:83px;margin:3px;vertical-align: middle;line-height: 1.1;font-size: 12.5px;text-align: center;}
-	a.pdf-lg span{display: block;padding:5px 10px;background:#60626b;color: white;min-height: 36px;}
+	a.pdf-lg{/* display: inline-block;padding:50px 0 0;background: url(images/icon-pdf-lg.png) no-repeat center 11px; border: 1px solid #bbbdc0; border-radius: 3px;width:83px;margin:3px;vertical-align: middle;line-height: 1.1;font-size: 12.5px;text-align: center; */}
+	a.pdf-lg{    display: inline-block;
+    padding: 9px 10px 9px 33px;
+    background: url(images/icon-pdf.png) no-repeat 12px center;
+    border: 1px solid #0f0e9f;
+    border-radius: 4px;
+    margin: 3px;
+    font-size: 13px;
+    color: #0f0e9f;}
+
+/* 	a.pdf-lg span{display: block;padding:5px 10px;background:#60626b;color: white;min-height: 36px;} */
 	td strong{color: #444;}
 	.single #wrapper{padding-top: 40px;}
+	.single h1{padding-top: 5%;padding-left: 5px;}
 	#detail{width: 100%;}
 	#detail h1{color: white;margin: 0;padding:7px 0px 7px 12px;font-size: 20px;letter-spacing: 0.06em;}
 	#detail tr td:first-of-type{text-align: right;width: 190px;}
 	#detail img{margin-right: 14px;}
 
 	.entry.single{padding-bottom: 0;}
-	.info{padding-top: 5%;}
 	.info ul{font-size: 13px;list-style: none;/* width: 50%; */}
 	.info li{border-bottom: 1px solid #ddd;padding: 5px;}
 	.info ul.unit,
@@ -575,33 +589,40 @@ select {
 /* !Footer  */
 	#footer *{color:#727579;}
 	#footer address{font-family: "Rotis Sans Serif W04 Regular", sans-serif;padding: 7px 0 13px 18px;}
+	#footer p{margin: 0;}
 	#footer a{color:#00af9a;color:#007769;}
 	#footer a.tel{font-size:17px;margin-bottom: 6px;display: block;}
-	#footer{background: white;position: relative;border-top: 1px solid #ccc;padding-top: 15px;font-size: 13px;}
+	#footer{border-top: 1px solid #d2f4f1;padding-top: 15px; font-size: 13px;}
 	#footer h5{color:#1d1ca5;text-transform: uppercase;}
 	#footer h6 {color: #666e75; font-size: 12px; letter-spacing: 0.06em; margin: 0 0 1px; }
 	#footer ul{list-style: none;}
 	#footer li span{color:#00c2ad;margin-right: 4px;}
-	#footer .menu{margin: 0;}
+	#footer .menu{margin: 0;text-align: center;}
 	#footer .menu a{border-right: 1px solid #94999f;padding: 0 12px;}
 	#footer .menu :last-child a{border:0;}
-	#footer .copyright {background:#f7f7f8;padding: 18px 25px 0; font-size:11px; margin-bottom: 0; clear: both;}
+	#footer .copyright {background:#f7f7f8;padding: 18px 25px; font-size:11px; margin-bottom: 0; clear: both;}
 	#footer .copyright li{display: inline-block;}
 	#footer .copyright a{color:#727579;}
 	address{margin: 0 auto;}
 	#footer img {max-width: 220px;max-width: 100%;}
 	#footer .contact, #footer > div.col-md-5{padding-left: 0;}
 	#footer .benefits, #footer > div.col-md-7{padding-right: 0;}
-
+	.hda{padding-left:18px;padding-bottom: 23px;}
 
 /* 	!Mobile styles */
 @media (min-width: 768px){
 	#wrapper {padding-left: 245px;}
 	#sidebar-wrapper {width: 245px;background: #fff;height: 100%;border-right:1px solid #d2f4f1;}
 	#header .navbar-toggle{display: none;}
+	#footer h5 {padding-top: 23px;}
 }
+@media (max-width: 1024px) {
+	#banner br{display: none;}
+
+	}
 @media (max-width: 992px) {
-	#footer .pro{clear: both;}
+	#footer .contact{clear: both;}
+	#footer .contact h5,#footer .companies h5{padding-top: 0;}
 
 }
 @media (min-width: 768px) and (max-width: 961px){
@@ -614,22 +635,83 @@ select {
 	#sidebar-wrapper {width: 100%;z-index: 1;top:0px;background:rgba(255,255,255,.8);position: relative;}
 	.navbar-fixed-top .navbar-collapse {width: 100%;}
 	.navbar-nav {margin: 0 -15px;}
-	.navbar-brand {padding: 15px 20px 15px;}
+	.navbar-brand {padding: 15px 20px 15px;border-bottom: 1px solid #00c9b7;}
 	.navbar-brand>img {max-width: 220px;margin: auto;}
+	#menu-main {border: 0;}
 	.page-id-11 #banner { padding-bottom: 4%; padding-top: 6%; }
-	#awards li { float: none; display: inline-block; text-align: center; width: 45%; }
-	.item img, #footer img{ /* margin: auto; */}
+	#awards li { float: none; display: inline-block; text-align: center;vertical-align: middle;}
 	#footer img {max-width: 220px;}
+	#footer .pro{clear: both;}
+	#footer div{padding-left: 0;padding-right: 0;}
+	#footer .logo{text-align: center;}
+	#footer .logo img{margin: auto;}
+	.copyright{    text-align: center;}
+	#footer p {    margin-bottom: 10px;}
+	#footer nav{width: 100%;}
+	.single h1 {
+    font-size: 24px;
+    text-align: center;    margin-bottom: -25px;
+    position: relative;
+    z-index: 1;
+}
+	.single #wrapper { padding-top: 12px;}
 }
 @media (max-width: 400px) {
+	#home #banner {
+    background: #fff !important;}
+.info img {
+    display: block;
+    margin: 12px 0 0 8%;
+}
+.download{margin: -1px 30px 12px !important;display: block;
+    text-align: center;}
+.home .product{padding-left: 5px;padding-right:5px;}
+.single h1{    padding-top: 25px;
+    margin-top: 0;}
+    .info ul strong {
+    width: 50%;}
+   #NDC, #wholesale {
+    margin-bottom: 0px;
+}
+.info ul {
+    border-top: 1px solid #ddd;
+    margin-top: 28px;
+}
 	#signup #gform_1 .gform_heading { width: 100%; padding: 0 12%; }
 	#signup #gform_1 .gform_body { width: 80%; display: block; margin: auto;float: none; }
 	#gform_1 .gform_description { width: 100%; }
-	#footer { text-align: center; }
+	#footer .col-sm-5 {text-align: center;}
 	#signup #gform_1 #field_1_1,
 	#signup #gform_1 #field_1_2{width: 100%;}
 	#contact .entry div{border-right: 0;}
 	#contact .entry div.last{padding-left: 15px;}
+	.item img, #footer img{ margin: auto;}
+.hda{padding: 0 10px 12px;} #banner h2 { margin: 0 0 10px; font-size: 24px;}
+#products #banner {background-position:0px 90px !important; min-height: 70vh; padding-top: 6%; text-align: center; padding: 6% 5% 0; }
+.home #banner p, #products #banner p { font-size: 14px; line-height: 1.4;}
+.cards > div { margin-bottom: 10px; }
+#about h4{font-size: 20px;margin-bottom: 11px;}
+#about .cards h4 { padding: 12px 10px 12px 20%; font-size: 20px; }
+#signup { background-image: none; padding-bottom: 11px;position: relative; }
+#gform_1 input#gform_submit_button_1 { position: absolute; bottom:0px; right: 14%; padding: 2px 20px; }
+#gform_1 input, #gform_2 input,
+#gform_2 textarea { padding: 4px 20px;}
+section.last { padding-bottom: 90px; }
+article.col-xs-9.col-xs-offset-2.col-md-4.col-md-offset-0 { padding-right: 0; }
+#about .entry ul { padding-left: 16%; }
+#footer address,#footer .logo img {
+    padding-left: 0;
+}
+#awards {
+    padding: 15px 15px 10px;
+}
+#awards h2 {
+    margin: 11px auto 22px;
+}
+#three-col .col-md-4 {
+    min-height: 250px;
+}
+#three-col .catalog div{padding: 0 6px 0 21px !important;}
 
 }
 @media (min-width: 992px){

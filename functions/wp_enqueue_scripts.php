@@ -61,7 +61,9 @@ if (is_page(11)){ //Contact map
 	wp_enqueue_script(array('google-map','acf-map'));
 }
 
+/*
 if ( wp_is_mobile() ) {
 	wp_enqueue_style('jquery-mobile', 'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css');
 	wp_enqueue_script('jquery-mobile', 'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js');
 }
+*/

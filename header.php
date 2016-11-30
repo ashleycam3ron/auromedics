@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="<?php bloginfo('language'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#000">
+    <meta name="theme-color" content="#0f0e9f">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="copyright" content="Copyright <?php bloginfo('name');?> <?php echo date('Y');?>. All Rights Reserved.">
@@ -48,7 +48,7 @@
 <body <?php body_class(); ?>>
 	<h3 class="hidden"><?php bloginfo('name')?> – <?php bloginfo('description');?></h3>
 
-<header id="header" role="banner" class="col-sm-offset-4 col-md-offset-6">
+<header id="header" role="banner" class="col-sm-offset-4 col-md-offset-5 col-lg-offset-6">
 	<span>Customer Service: <a class="tel" href="tel:888-238-7880">(888) 238-7880</a></span>
 	<a href="<?php echo esc_url( home_url() ) ?>/careers">Careers</a>
 <!--

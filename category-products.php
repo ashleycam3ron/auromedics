@@ -1,5 +1,4 @@
 <?php /* All Products */
-
 wp_enqueue_script( 'isotope', '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', array('jquery'),  true );
 wp_enqueue_script( 'isotope-fix', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.0.0/imagesloaded.pkgd.min.js', array('jquery'),  true );
 
@@ -8,17 +7,16 @@ get_header(); ?>
 <div id="products" class="container-fluid">
 	<?php $image = get_field('header_image', 'category_1');
 		if( !empty($image) ){ ?>
-
-	<section id="banner" style="background: url(<?php echo $image['url']; ?>) no-repeat center left #def1ef;background-size: cover;">
-		<article class="col-md-5 col-md-offset-6">
-			<?php if (get_field('header_title', 'category_1')){ ?> <h1><?php the_field('header_title', 'category_1'); ?></h1> <?php } ?>
-			<?php if (get_field('header_text', 'category_1')){ ?> <h2><?php the_field('header_text', 'category_1'); ?></h2> <?php } ?>
-			<?php echo category_description( $category_id ); ?>
-		</article>
-	</section>
+		<section id="banner" style="background: url(<?php echo $image['url']; ?>) no-repeat center left #def1ef;background-size: cover;">
+			<article class="col-md-5 col-md-offset-6">
+				<?php if (get_field('header_title', 'category_1')){ ?> <h1><?php the_field('header_title', 'category_1'); ?></h1> <?php } ?>
+				<?php if (get_field('header_text', 'category_1')){ ?> <h2><?php the_field('header_text', 'category_1'); ?></h2> <?php } ?>
+				<?php echo category_description( $category_id ); ?>
+			</article>
+		</section>
 	<?php } ?>
 
-		<aside id="sidebar-left" class="col-md-3">
+		<aside id="sidebar-left" class="hidden-xs col-md-3">
 			<p>Filter by keyword</p>
 			<p style="margin: 0;"><input type="text" class="quicksearch" placeholder="Search" /></p>
 			<hr>
@@ -27,7 +25,6 @@ get_header(); ?>
 			$html = '<ul id="filters2">';
 			foreach ( $tags as $tag ) {
 				$tag_link = get_tag_link( $tag->term_id );
-
 				$html .= "<li><label><input type='checkbox' value='.tag-{$tag->slug}'/>";
 				$html .= "{$tag->name}<span class='count pull-right'>{$tag->count}<span></label></li>";
 			}
@@ -38,18 +35,15 @@ get_header(); ?>
 		<section class="col-md-9 all">
 		    <header style="border: 0;border-bottom: 1px solid #ebeced;">
 			    <h3><span>All</span> Products</h3>
-
 			    <ul id="filters">
 					<li><a href="#" data-filter="*" class="selected btn-default">All</a></li>
 					<li><a href="#" data-filter=".category-featured-products" class="btn-default">Featured</a></li>
 				</ul>
-
-				<a href="http://ashley-cameron.com/clients/auromedics/wordpress/wp-content/uploads/AuroMedics-Corporate-Product-Catalog.pdf" target="_blank" class="download pull-right btn-default1">Download Product Catalog</a>
+				<a href="http://ashley-cameron.com/clients/auromedics/wordpress/wp-content/uploads/AuroMedics-Corporate-Product-Catalog.pdf" target="_blank" class="download btn-default1">Download Product Catalog</a>
 		    </header>
 
 		    <div id="grid">
-		    <?php
-			    $args = array(
+		    <?php $args = array(
 					'post_type' => 'post',
 					'category_name' => 'Products',
 					'posts_per_page' => -1,
@@ -86,8 +80,7 @@ get_header(); ?>
 			</article>
 			<?php endwhile; ?>
 		</section>
-
-</div>
+</div> <!-- end #products -->
 
 <script>
 	$("input[type='checkbox']").change(function(){
@@ -98,8 +91,6 @@ get_header(); ?>
 	    }
 	});
 </script>
-
-
 <script>
 //superscript registered trademark
 jQuery('.preview').contents().filter(function() {
@@ -115,7 +106,7 @@ $("#filters :first-child a").addClass('selected');
 	// quick search regex
 	var qsRegex;
 
-	 var $container = $('#grid').imagesLoaded( function() {
+	var $container = $('#grid').imagesLoaded( function() {
 	  // init Isotope after all images have loaded
 	  $container.isotope({
 	    itemSelector : '.category-products',
@@ -178,8 +169,5 @@ $("#filters :first-child a").addClass('selected');
 	    timeout = setTimeout( delayed, threshold || 100 );
 	  }
 	}
-
-
-
 </script>
 <?php get_footer(); ?>

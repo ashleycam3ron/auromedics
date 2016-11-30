@@ -8,7 +8,7 @@ get_header();?>
 
 	<?php $video = get_field('video');
 		if( $video ): ?>
-		<section class="container-fluid" style="background: white;">
+		<section class="container-fluid" style="background: white;display: none;">
 			<h3 class="hidden">About Our Company</h3>
 			<video controls onclick="this.play();" class="img-responsive" style="margin: auto;" width="1024" height="400" poster="<?php echo get_stylesheet_directory_uri(); ?>/images/video-poster.jpg">
 <!-- <video class="img-responsive" style="margin: auto;" width="1024" height="400" poster="<?php //echo get_stylesheet_directory_uri(); ?>/images/video-poster.jpg" onclick="this.play();"> -->
@@ -20,8 +20,8 @@ get_header();?>
 	<?php endif; ?>
 
 	<section>
-		<article class="row entry" style="background:url(<?php echo get_stylesheet_directory_uri(); ?>/images/bg02.jpg) no-repeat left top;">
-			<div style="border-top: 1px solid #d2f4f1;margin-bottom: 40px;">
+		<article class="row entry" style="background:url(<?php echo get_stylesheet_directory_uri(); ?>/images/bg02.jpg) no-repeat left top;background-size: contain;">
+			<div style="border-top: 1px solid #d2f4f1;margin-bottom: 40px;padding-top: 5%;">
 				<div class="col-md-6 col-md-offset-3 text-center" style="padding: 5% 5% 0;">
 					<h4 style="font-size: 24px;margin-bottom: 8px;letter-spacing: .01em;font-family:'RotisSemiSerifW02-Roman', serif;">Experience the AuroMedics Difference!</h4>
 					<img class="stars" src="<?php echo get_stylesheet_directory_uri(); ?>/images/5-stars.png" alt="5 stars"/>
@@ -168,7 +168,7 @@ get_header();?>
 	<?php } ?>
 
 	<section class="entry last" style="background:#fff;">
-		<img class="group img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/images/Product-Group-About.png" alt="Product group" />
+		<img class="group img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/images/Product-Group-About-1.png" alt="Product group" />
 	</section>
 
 	<section id="signup">

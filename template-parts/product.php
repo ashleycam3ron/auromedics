@@ -1,6 +1,6 @@
-<article class="entry col-md-11 single">
-	<div class="col-md-4 text-center">
-		<a class="btn-default" href="<?php echo home_url(); ?>/products">Back</a>
+<h1 class="col-md-offset-4"><?php the_title();?></h1>
+<article class="entry col-xs-12 col-md-11 single">
+	<div class="col-md-4 text-center" style="padding: 0;">
 		<?php if( has_post_thumbnail() ) {
 				$large = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' ); ?>
 			<a class="fancybox product-img" rel="products" href="<?php echo $large[0]; ?>">
@@ -25,16 +25,19 @@
 			</ul>
 		<?php endif; ?>
 
+		<div class="clear">
 		<?php
 			$safety = get_field('safety');
 			$hdma = get_field('hdma');
 			$wholesale = get_field('wholesale'); ?>
 		<?php if( $safety ){ ?>
-			<a class="pdf-lg" target="_blank" href="<?php echo $safety['url']; ?>"><span>Safety Data Sheet</span></a><?php } ?>
+			<a class="pdf-lg" target="_blank" href="<?php echo $safety['url']; ?>">Safety Data Sheet</a><?php } ?>
 		<?php if( $hdma ){ ?>
-			<a class="pdf-lg" target="_blank" href="<?php echo $hdma['url']; ?>"><span>HDMA</span></a><?php } ?>
+			<a class="pdf-lg" target="_blank" href="<?php echo $hdma['url']; ?>">HDMA</a><?php } ?>
 
 			<p class="clear"><small><strong>For Package Inserts, please click on the NDC#</strong></small></p>
+		</div>
+		<a class="back hidden-xs" href="<?php echo home_url(); ?>/products">Back</a>
 	</div>
 	<div class="info col-md-8" style="padding-right: 0;">
 		<?php the_content();?>
@@ -53,7 +56,7 @@
 			   	$controlled = get_sub_field('controlled');
 			   	$additional = get_sub_field('additional');
 			   	$storage = get_sub_field('storage'); ?>
-			<h1><?php the_title();?></h1>
+
 			<ul>
 			   	<?php if( have_rows('description') ):
 				   	$count = 0; ?>
@@ -69,86 +72,89 @@
 
 			<h2>Wholesaler Item Numbers</h2>
 			<?php if( have_rows('wholesale') ): ?>
-				<table id="wholesale" class="text-center col-md-12">
-					<tr>
-					  <thead>
-						<th>Strength</th>
-						<th>ABC		</th>
-						<th>Cardinal</th>
-						<th>McKesson</th>
-						<th>M&amp;D	</th>
-					  </thead>
-					</tr>
-			   <?php while ( have_rows('wholesale') ) : the_row();
-				   	$strength = get_sub_field('strength');
-					$abc = get_sub_field('abc');
-				   	$cardinal = get_sub_field('cardinal');
-				   	$mckesson = get_sub_field('mckesson');
-				   	$md = get_sub_field('md'); ?>
-					<tr>
-			   		  <td><?php if ($strength){ ?><?php echo $strength; ?><?php } else { echo '–';} ?></td>
-			   		  <td><?php if ($abc){ ?><?php echo $abc; ?>		  <?php } else { echo '–';} ?></td>
-			   		  <td><?php if ($cardinal){ ?><?php echo $cardinal; ?><?php } else { echo '–';} ?></td>
-			   		  <td><?php if ($mckesson){ ?><?php echo $mckesson; ?><?php } else { echo '–';} ?></td>
-			   		  <td><?php if ($md){ ?><?php echo $md; ?>			  <?php } else { echo '–';} ?></td>
-					</tr>
-				<?php endwhile; ?>
-				</table>
+				<div style="overflow-x: auto;">
+					<table id="wholesale" class="text-center col-md-12">
+						<tr>
+						  <thead>
+							<th>Strength</th>
+							<th>ABC		</th>
+							<th>Cardinal</th>
+							<th>McKesson</th>
+							<th>M&amp;D	</th>
+						  </thead>
+						</tr>
+				   <?php while ( have_rows('wholesale') ) : the_row();
+					   	$strength = get_sub_field('strength');
+						$abc = get_sub_field('abc');
+					   	$cardinal = get_sub_field('cardinal');
+					   	$mckesson = get_sub_field('mckesson');
+					   	$md = get_sub_field('md'); ?>
+						<tr>
+				   		  <td><?php if ($strength){ ?><?php echo $strength; ?><?php } else { echo '–';} ?></td>
+				   		  <td><?php if ($abc){ ?><?php echo $abc; ?>		  <?php } else { echo '–';} ?></td>
+				   		  <td><?php if ($cardinal){ ?><?php echo $cardinal; ?><?php } else { echo '–';} ?></td>
+				   		  <td><?php if ($mckesson){ ?><?php echo $mckesson; ?><?php } else { echo '–';} ?></td>
+				   		  <td><?php if ($md){ ?><?php echo $md; ?>			  <?php } else { echo '–';} ?></td>
+						</tr>
+					<?php endwhile; ?>
+					</table>
+				</div>
 			<?php endif; ?>
 
 			<h2>Unit of Sale</h2>
 			<ul class="unit">
 			  <li>
 			   	<?php if ($physical_form){ ?>
-			   		<span class="col-md-3"><strong>Physical Form</strong> <br/><?php echo $physical_form; ?></span><?php } ?>
+			   		<span class="col-xs-4 col-md-3"><strong>Physical Form</strong> <br/><?php echo $physical_form; ?></span><?php } ?>
 			   	<?php if ($unit_of_sale){ ?>
-			   		<span class="col-md-3"><strong>Unit of Sale</strong> <br/><?php echo $unit_of_sale; ?></span><?php } ?>
+			   		<span class="col-xs-4 col-md-3"><strong>Unit of Sale</strong> <br/><?php echo $unit_of_sale; ?></span><?php } ?>
 			   	<?php if ($pack_size){ ?>
-			   		<span class="col-md-3"><strong>Pack Size</strong> <br/><?php echo $pack_size; ?></span><?php } ?>
+			   		<span class="col-xs-4 col-md-3"><strong>Pack Size</strong> <br/><?php echo $pack_size; ?></span><?php } ?>
 			   	<?php if ($case){ ?>
-			   		<span class="col-md-3"><strong>Case Quantity</strong> <br/><?php echo $case; ?></span><?php } ?>
+			   		<span class="col-xs-4 col-md-3"><strong>Case Quantity</strong> <br/><?php echo $case; ?></span><?php } ?>
 			   		<div class="clear"></div>
 			  </li>
 		   	</ul>
 
 		<?php if( have_rows('ndc') ): ?>
-			<table id="NDC" class="text-center col-md-12">
-				<tr>
-				  <thead>
-					<th>NDC <br/>#55150-</th>
-					<th>Description		</th>
-					<th>Strength		</th>
-					<th>Concentration	</th>
-					<th>Container Size	</th>
-					<th>Fill Volume		</th>
-					<th>Closure			</th>
-				  </thead>
-				</tr>
-			   	<?php while ( have_rows('ndc') ) : the_row();
-				   	$ndc = get_sub_field('ndc');
-				   	$ndcLink = get_sub_field('ndc_link');
-				   	$description = get_sub_field('description');
-				   	$strength = get_sub_field('strength');
-				   	$concentration = get_sub_field('concentration');
-				   	$container_size = get_sub_field('container_size');
-				   	$fill_volume = get_sub_field('fill_volume');
-				   	$closure = get_sub_field('closure'); ?>
+			<div style="overflow-x: auto;">
+				<table id="NDC" class="text-center col-md-12">
+					<tr>
+					  <thead>
+						<th>NDC <br/>#55150-</th>
+						<th>Description		</th>
+						<th>Strength		</th>
+						<th>Concentration	</th>
+						<th>Container Size	</th>
+						<th>Fill Volume		</th>
+						<th>Closure			</th>
+					  </thead>
+					</tr>
+				   	<?php while ( have_rows('ndc') ) : the_row();
+					   	$ndc = get_sub_field('ndc');
+					   	$ndcLink = get_sub_field('ndc_link');
+					   	$description = get_sub_field('description');
+					   	$strength = get_sub_field('strength');
+					   	$concentration = get_sub_field('concentration');
+					   	$container_size = get_sub_field('container_size');
+					   	$fill_volume = get_sub_field('fill_volume');
+					   	$closure = get_sub_field('closure'); ?>
 
-				<tr>
-			   		<?php if ($ndc){ ?><td><a target="_blank" href="<?php echo $ndcLink; ?>"><?php echo $ndc; ?></a></td><?php } ?>
-				   	<?php if ($description){ ?><td><?php echo $description; ?></td><?php } ?>
-				   	<?php if ($strength){ ?><td><?php echo $strength; ?></td><?php } ?>
-				   	<?php if ($concentration){ ?><td><?php echo $concentration; ?></td><?php } ?>
-				   	<?php if ($container_size){ ?><td><?php echo $container_size; ?></td><?php } ?>
-				   	<?php if ($fill_volume){ ?><td><?php echo $fill_volume; ?></td><?php } ?>
-				   	<?php if ($closure){ ?><td><?php echo $closure; ?></td><?php } ?>
-				</tr>
-			    <?php endwhile; ?>
-			</table>
+					<tr>
+				   		<?php if ($ndc){ ?><td><a target="_blank" href="<?php echo $ndcLink; ?>"><?php echo $ndc; ?></a></td><?php } ?>
+					   	<?php if ($description){ ?><td><?php echo $description; ?></td><?php } ?>
+					   	<?php if ($strength){ ?><td><?php echo $strength; ?></td><?php } ?>
+					   	<?php if ($concentration){ ?><td><?php echo $concentration; ?></td><?php } ?>
+					   	<?php if ($container_size){ ?><td><?php echo $container_size; ?></td><?php } ?>
+					   	<?php if ($fill_volume){ ?><td><?php echo $fill_volume; ?></td><?php } ?>
+					   	<?php if ($closure){ ?><td><?php echo $closure; ?></td><?php } ?>
+					</tr>
+				    <?php endwhile; ?>
+				</table>
+			</div>
 		<?php endif; ?>
 
 		<h2 class="accordion"><span class="plus">+</span>Additional Information</h2>
-
 			 <?php if ($additional){ ?>
 				<?php if( in_array('gluten', $additional) ) { ?>
 				  <img src="<?php echo get_stylesheet_directory_uri();?>/images/gluten-free.png" alt="Gluten Free"/>
@@ -160,7 +166,6 @@
 				  <img src="<?php echo get_stylesheet_directory_uri();?>/images/preservative-free.png" alt="Preservative Free"/>
 				<?php } ?>
 			<?php } ?>
-
 
 			<div class="extra">
 				<ul style="margin-top: 10px;">
